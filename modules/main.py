@@ -182,7 +182,7 @@ async def account_login(bot: Client, m: Message):
                 url = url
 
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
-            name = f'𝕿𝖍𝖊 𝕻𝖍𝖊𝖓𝖔𝖒𝖊𝖓𝖆𝖑 {name1[:60]}'
+            name = f'@HKOWNER0 {name1[:60]}'
 
             if "youtu" in url:
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
