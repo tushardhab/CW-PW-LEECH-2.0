@@ -31,7 +31,7 @@ bot = Client(
 
 @bot.on_message(filters.command(["start"]))
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text("Hi!\n\nGive /txt Command to Downlaod From a Text file.\n\n**𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐝 𝐁𝐲 :** ༺𝙅𝙊𝙃𝙉✪𝙒𝙄𝘾𝙆༻\n")
+    editable = await m.reply_text("Hi!\n\nGive /txt Command to Downlaod From a Text file.\n\n**𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐝 𝐁𝐲 :** ༺@HKOWNER0༻\n")
 
 
 @bot.on_message(filters.command("stop"))
@@ -226,7 +226,7 @@ async def account_login(bot: Client, m: Message):
                         time.sleep(e.x)
                         continue
                 else:
-                    Show = f"**⥥ Downloading »**\n\n**Name »** `{name}\nQuality » {raw_text2}`\n\n**Url »** `{url}`\n\n**Bot By ➤ **༺🄿🄷🄴🄽🄾🄼🄴🄽🄰🄻༻"
+                    Show = f"**⥥ Downloading »**\n\n**Name »** `{name}\nQuality » {raw_text2}`\n\n**Url »** `{url}`\n\n**Bot By ➤ **༺@HKOWNER0༻"
                     prog = await m.reply_text(Show)
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
