@@ -66,12 +66,14 @@ async def account_login(bot: Client, m: Message):
         links = []
 
         for i in content:
-            if ':' in i and 'http' in i:
-                try:
-                    title, url = i.rsplit(':', 1)
-                    links.append([title.strip(), url.strip()])
-                except ValueError:
-                    continue  # Skip malformed lines
+    if ':' in i and 'http' in i:
+        try:
+            title, url = i.rsplit(':', 1)
+            url = url.strip()
+            if url.startswith("http://") or url.startswith("https://"):
+                links.append([title.strip(), url])
+        except ValueError:
+            continue
 
         os.remove(x)
 
