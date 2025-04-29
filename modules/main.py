@@ -58,26 +58,28 @@ async def account_login(bot: Client, m: Message):
 
     path = f"./downloads/{m.chat.id}"
 
-    try:
-       with open(x, "r") as f:
-           content = f.read()
-       content = content.split("\n")
-       links = []
-    for i in content:
-        if ':' in i and 'http' in i:
-            try:
-                title, url = i.rsplit(':', 1)
-                links.append([title.strip(), url.strip()])
-            except ValueError:
-                continue  # skip lines that don't split correctly
-       os.remove(x)
-            # print(len(links)
-    except:
-           await m.reply_text("Invalid file input.")
-           os.remove(x)
-           return
-    
-   
+       try:
+        with open(x, "r") as f:
+            content = f.read()
+
+        content = content.split("\n")
+        links = []
+
+        for i in content:
+            if ':' in i and 'http' in i:
+                try:
+                    title, url = i.rsplit(':', 1)
+                    links.append([title.strip(), url.strip()])
+                except ValueError:
+                    continue  # Skip malformed lines
+
+        os.remove(x)
+
+    except Exception as e:
+        await m.reply_text("Invalid file input.")
+        os.remove(x)
+        return
+
     await editable.edit(f"Total links found are **{len(links)}**\n\nSend From where you want to download initial is **1**")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text = input0.text
