@@ -63,9 +63,6 @@ async def account_login(bot: Client, m: Message):
            content = f.read()
        content = content.split("\n")
        links = []
-       content = content.split("
-")
-    links = []
     for i in content:
         if ':' in i and 'http' in i:
             try:
